@@ -11,9 +11,11 @@ with open('wiki_2021_10_05_50000.json', encoding="utf-8") as json_file:
 # print(data[999]['title'])
 # print(data[999]['articles'])
 # jieba cut
+
 jieba.case_sensitive = True
 jieba.set_dictionary('./dict.txt.big.txt')
 jieba.load_userdict('./title.txt')
+
 dict = {}
 for i in range(50000):
     print(i)
@@ -39,5 +41,5 @@ for item in dict.keys():
 
 
 # print(dict['使用'])
-with codecs.open("InvertedIndex5.json", 'w', encoding="utf-8") as tmpFp:
+with codecs.open("InvertedIndex.json", 'w', encoding="utf-8") as tmpFp:
     json.dump(dict, tmpFp, sort_keys=True, ensure_ascii=False)
